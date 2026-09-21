@@ -1731,3 +1731,23 @@ h1 {
     box-shadow: 0 0 8px #ffee55, 0 0 16px #fddd25, 0 0 24px #fddd25;
   }
 }
+
+.flower--bg3 {
+  left: 35%;
+  transform: scale(0.55) rotate(-10deg);
+  animation: moving-flower-1 4s linear infinite;
+}
+
+.flower--bg3 .flower__line {
+  height: 45vmin;
+}
+
+.flower--bg4 {
+  left: 65%;
+  transform: scale(0.55) rotate(15deg);
+  animation: moving-flower-2 4.2s linear infinite;
+}
+
+.flower--bg4 .flower__line {
+  height: 48vmin;
+}
