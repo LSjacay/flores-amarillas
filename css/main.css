@@ -1687,3 +1687,47 @@ h1 {
 .flower--bg2 .flower__line {
   height: 52vmin;
 }
+
+/* Estilos para las Luciérnagas */
+.firefly {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #ffffa0;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 6px #ffee55, 0 0 12px #fddd25, 0 0 20px #fddd25;
+  z-index: 5; /* Quedan por encima del fondo pero por detrás del texto principal */
+  animation: moverLuciernaga linear infinite alternate, titanioLuciernaga ease-in-out infinite alternate;
+}
+
+/* Animación de trayectoria flotante */
+@keyframes moverLuciernaga {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+  }
+  25% {
+    transform: translate(20vw, -15vh) scale(1.1);
+  }
+  50% {
+    transform: translate(-15vw, -30vh) scale(0.9);
+  }
+  75% {
+    transform: translate(10vw, -45vh) scale(1.2);
+  }
+  100% {
+    transform: translate(-20vw, -60vh) scale(0.8);
+  }
+}
+
+/* Animación de titileo (enciende y apaga la luz) */
+@keyframes titanioLuciernaga {
+  0%, 100% {
+    opacity: 0.2;
+    box-shadow: 0 0 2px #ffee55;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 8px #ffee55, 0 0 16px #fddd25, 0 0 24px #fddd25;
+  }
+}
