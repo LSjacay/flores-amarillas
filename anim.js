@@ -70,3 +70,31 @@ function ocultarTitulo() {
 
 // Llama a la función después de 216 segundos (216,000 milisegundos)
 setTimeout(ocultarTitulo, 216000);
+
+// Generar luciérnagas flotantes
+function crearLuciernagas() {
+  const cantidad = 15; // Podés ajustar la cantidad de luciérnagas
+  const contenedor = document.body;
+
+  for (let i = 0; i < cantidad; i++) {
+    const luciernaga = document.createElement("div");
+    luciernaga.className = "firefly";
+
+    // Posición inicial aleatoria
+    luciernaga.style.left = `${Math.random() * 100}vw`;
+    luciernaga.style.top = `${Math.random() * 100}vh`;
+
+    // Tiempos de animación aleatorios para que no se muevan todas igual
+    const duracionMovimiento = 8 + Math.random() * 12; // entre 8s y 20s
+    const duracionBrillo = 1.5 + Math.random() * 2.5; // entre 1.5s y 4s
+    const retardo = Math.random() * 5;
+
+    luciernaga.style.animationDuration = `${duracionMovimiento}s, ${duracionBrillo}s`;
+    luciernaga.style.animationDelay = `${retardo}s, ${retardo}s`;
+
+    contenedor.appendChild(luciernaga);
+  }
+}
+
+// Iniciar luciérnagas al cargar
+window.addEventListener("DOMContentLoaded", crearLuciernagas);
