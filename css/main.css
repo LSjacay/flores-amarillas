@@ -144,7 +144,17 @@ body {
      final renderizada del elemento aunque esté rotado en 3D. */
   .flower__leaf {
     box-shadow: inset 0 0 1.5vmin #ffffff !important;
-    filter: drop-shadow(0 0 8px #ffeb3b) drop-shadow(0 0 18px #ffeb3b) !important;
+    filter: brightness(1.35) drop-shadow(0 0 8px #ffeb3b) drop-shadow(0 0 18px #ffeb3b) !important;
+  }
+
+  /* La hojita de sombreado detrás de los pétalos pesa demasiado
+     en la escala chica de mobile y opaca el amarillo */
+  .flower__leaf--4 {
+    opacity: 0.35 !important;
+  }
+
+  .flower__white-circle {
+    filter: brightness(1.2);
   }
 
   .flower__leafs::after {
