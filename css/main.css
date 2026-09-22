@@ -104,11 +104,11 @@ body {
 @media only screen and (max-width: 600px) {
   .titulo {
     position: fixed;
-    top: 4vh;
+    top: 3vh;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     letter-spacing: 2px;
     z-index: 1000;
     margin-bottom: 0;
@@ -116,11 +116,11 @@ body {
 
   #lyrics {
     position: fixed;
-    top: 18vh;
+    top: 12vh;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
     z-index: 1000;
     margin-bottom: 0;
@@ -128,7 +128,10 @@ body {
   }
 
   .flowers {
-    transform: scale(0.6) translateY(4vh);
+    position: absolute;
+    bottom: 5vmin;
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
   }
 }
 .flower {
@@ -1631,36 +1634,6 @@ h1 {
 /* Flores de fondo claras */
 
 /* Ajuste móvil perfecto */
-@media only screen and (max-width: 600px) {
-  .titulo {
-    position: fixed !important;
-    top: 4vh !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 90% !important;
-    font-size: 1.05rem !important;
-    letter-spacing: 2px !important;
-    z-index: 1000 !important;
-    margin-bottom: 0 !important;
-  }
-
-  #lyrics {
-    position: fixed !important;
-    top: 18vh !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 90% !important;
-    font-size: 0.9rem !important;
-    letter-spacing: 1px !important;
-    z-index: 1000 !important;
-    margin-bottom: 0 !important;
-    text-align: center !important;
-  }
-
-  .flowers {
-    transform: scale(0.6) translateY(4vh) !important;
-  }
-}
 
 /* Agregar más estilos según sea necesario */
 
