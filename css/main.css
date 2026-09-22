@@ -30,15 +30,7 @@ body {
   font-weight: bold;
   letter-spacing: 4px;
 }
-@media only screen and (max-width: 600px) {
-  /* Estilos específicos para dispositivos con un ancho máximo de 600px */
-  #lyrics {
-      font-size: 14px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      margin-bottom: 530px;
-      letter-spacing: 3px;
-  }
 
-}
 .titulo {
   margin-bottom: 180px;
   font-family: "Arial Narrow", Arial, sans-serif;
@@ -110,16 +102,35 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  /* Estilos específicos para dispositivos con un ancho máximo de 600px */
-.flowers {
-      font-size: 14px;
-      margin-bottom: 35%;
-      letter-spacing: 3px;
-      transform: scale(1.0);
-}
+  .titulo {
+    position: fixed;
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    z-index: 1000;
+    margin-bottom: 0;
+  }
 
-}
+  #lyrics {
+    position: fixed;
+    top: 18vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    z-index: 1000;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
+  .flowers {
+    transform: scale(0.6) translateY(4vh);
+  }
+}
 .flower {
   position: absolute;
   bottom: 10vmin;
@@ -249,11 +260,10 @@ body {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #253bfd;
-  background-color: #fddd25;
+  background-color: #ffeb3b !important;
   transform-origin: bottom center;
   opacity: 0.9;
-  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 235, 59, 0.6) !important;
 }
 .flower__leaf--1 {
   transform: translate(-10%, 1%) rotateY(40deg) rotateX(-50deg);
@@ -727,14 +737,7 @@ body {
   }
 }
 .flower__grass__overlay {
-  position: absolute;
-  top: -10%;
-  right: 0%;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  filter: blur(1.5vmin);
-  z-index: 100;
+  display: none !important;
 }
 .flower__g-long {
   --w: 2vmin;
@@ -1603,24 +1606,8 @@ body {
     transform: scale(0);
   }
 }
-.container * {
-  -webkit-animation-play-state: paused !important;
-  animation-play-state: paused !important;
-} /*# sourceMappingURL=main.css.map */
-
 
 /* Reset de estilos básicos */
-body, h1, p {
-  margin: 0;
-  padding: 0;
-}
-
-/* Estilos generales */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f7f7;
-  color: #333;
-}
 
 .container {
   max-width: 1200px;
@@ -1634,39 +1621,50 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Media Queries para tamaños de pantalla diferentes */
-@media screen and (max-width: 600px) {
-  /* Estilos para pantallas pequeñas */
-  h1 {
-      font-size: 1.5em;
-  }
+/* --- PARCHES DE BRILLO Y RESPONSIVE (MÓVIL) --- */
+
+/* Elimina la sombra oscura que tapa el centro */
+.flower__grass__overlay {
+  display: none !important;
 }
 
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-  /* Estilos para pantallas medianas */
-  h1 {
-      font-size: 1.8em;
-  }
-}
+/* Flores de fondo claras */
 
-@media screen and (min-width: 1025px) {
-  /* Estilos para pantallas grandes */
-  h1 {
-      font-size: 2em;
+/* Ajuste móvil perfecto */
+@media only screen and (max-width: 600px) {
+  .titulo {
+    position: fixed !important;
+    top: 4vh !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 2px !important;
+    z-index: 1000 !important;
+    margin-bottom: 0 !important;
+  }
+
+  #lyrics {
+    position: fixed !important;
+    top: 18vh !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 1px !important;
+    z-index: 1000 !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+  }
+
+  .flowers {
+    transform: scale(0.6) translateY(4vh) !important;
   }
 }
 
 /* Agregar más estilos según sea necesario */
 
 /* Agregalo al final de main.css */
-
-.flowers-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  filter: brightness(0.8) blur(0.5px);
-}
 
 .flower--bg1 {
   left: 20%;
@@ -1750,4 +1748,37 @@ h1 {
 
 .flower--bg4 .flower__line {
   height: 48vmin;
+}
+
+/* Halo de luz cenital / Spotlight sobre las flores */
+.night::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  /* Luz cónica sutil amarilla/cálida enfocada en la parte inferior central */
+  background: radial-gradient(
+    ellipse at 50% 85%,
+    rgba(255, 245, 180, 0.22) 0%,
+    rgba(255, 220, 100, 0.08) 35%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 2;
+  animation: pulsoLuz 6s ease-in-out infinite alternate;
+}
+
+/* Animación sutil de respiración en la luz */
+@keyframes pulsoLuz {
+  0% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.03);
+  }
 }
